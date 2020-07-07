@@ -2,6 +2,9 @@ import io
 from PIL import Image
 import matplotlib.pyplot as plt
 
+import secrets
+
+print(secrets.BOT)
 
 class Grafico():
     def __init__(self, download, upload):
