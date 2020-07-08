@@ -1,10 +1,18 @@
 import io
+import json
+import subprocess
+
+import telepot
 from PIL import Image
 import matplotlib.pyplot as plt
 
-import secrets
+with open('secrets.json', 'r') as f:
+    secrets = json.load(f)
 
-print(secrets.BOT)
+BOT = telepot.Bot(secrets['BOT'])
+CHAT = secrets['CHAT']
+
+
 
 class Grafico():
     def __init__(self, download, upload):
@@ -28,7 +36,8 @@ class Grafico():
         plt.savefig(buf, format='png')
         buf.seek(0)
         im = Image.open(buf)
-        im.save('teste.png')
+        # im.save('teste.png')
+        BOT.sendPhoto(CHAT, open('teste.png', 'rb'))
         buf.close()
 
 
@@ -36,7 +45,10 @@ down_lista = []
 up_lista = []
 
 null = None
-json = {"client": {"rating": "0",
+j = subprocess.check_output(['speedtest-cli', '--json'])
+j = json.loads(j)
+
+j1 = {"client": {"rating": "0",
                    "loggedin": "0",
                    "isprating": "3.7",
                    "ispdlavg": "0",
@@ -68,8 +80,8 @@ json = {"client": {"rating": "0",
                    }
         }
 
-down_lista.append(round(json["download"] * 9.53674E-7, 2))
-up_lista.append(round(json["upload"] * 9.53674E-7, 2))
+down_lista.append(round(j["download"] * 9.53674E-7, 2))
+up_lista.append(round(j["upload"] * 9.53674E-7, 2))
 
 if (len(down_lista) > 48):
     down_lista.pop(0)
