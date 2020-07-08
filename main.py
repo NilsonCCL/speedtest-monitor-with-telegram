@@ -36,14 +36,20 @@ class Grafico():
         plt.xticks(color='w')
         # plt.show()
         plt.savefig('teste.png', dpi=100)
-        # buf = io.BytesIO()
-        # plt.savefig(buf, format='png')
-        # buf.seek(0)
+
+        buf = io.BytesIO()
+        plt.savefig(buf, format='png')
+        buf.seek(0)
         # im = Image.open(buf)
         # im.save('teste.png')
-        # buf.close()
+        print(type(open('teste.png', 'rb')))
+        print(type(buf))
+
+        BOT.sendPhoto(CHAT, buf)
+        buf.close()
+
         plt.close('all')
-        BOT.sendPhoto(CHAT, open('teste.png', 'rb'))
+        # BOT.sendPhoto(CHAT, open('teste.png', 'rb'))
 
 
 while True:
