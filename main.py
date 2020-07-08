@@ -36,7 +36,7 @@ class Grafico():
         plt.savefig(buf, format='png')
         buf.seek(0)
         im = Image.open(buf)
-        # im.save('teste.png')
+        im.save('teste.png')
         BOT.sendPhoto(CHAT, open('teste.png', 'rb'))
         buf.close()
 
