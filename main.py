@@ -43,7 +43,7 @@ class Grafico():
         im.save('teste.png')
         BOT.sendPhoto(CHAT, open('teste.png', 'rb'))
         buf.close()
-        plt.close()
+        plt.close('all')
 
 down_lista = []
 up_lista = []
@@ -52,20 +52,21 @@ upload_expected = []
 
 null = None
 
-for _ in range(12):
-    j = json.loads(subprocess.check_output(['speedtest-cli', '--json']))
+while True:
+    for _ in range(12):
+        j = json.loads(subprocess.check_output(['speedtest-cli', '--json']))
 
-    down_lista.append(round(j["download"] * 9.53674E-7, 2))
-    up_lista.append(round(j["upload"] * 9.53674E-7, 2))
-    download_expected.append(100)
-    upload_expected.append(50)
+        down_lista.append(round(j["download"] * 9.53674E-7, 2))
+        up_lista.append(round(j["upload"] * 9.53674E-7, 2))
+        download_expected.append(100)
+        upload_expected.append(50)
 
-    if len(down_lista) > 48:
-        down_lista.pop(0)
-        up_lista.pop(0)
-        download_expected.pop(0)
-        upload_expected.pop(0)
+        if len(down_lista) > 48:
+            down_lista.pop(0)
+            up_lista.pop(0)
+            download_expected.pop(0)
+            upload_expected.pop(0)
 
-    sleep(60)
+        sleep(300)
 
-Grafico(down_lista, up_lista, download_expected, upload_expected).plotar()
+    Grafico(down_lista, up_lista, download_expected, upload_expected).plotar()
