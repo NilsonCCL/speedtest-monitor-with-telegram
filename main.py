@@ -29,9 +29,8 @@ class Grafico():
         plt.plot(self.upload_expected, color='orange', label='Upload Speed Expected')
         plt.title('Velocidade de Conexão Atual VS. Velocidade de Conexão Esperada', )
         plt.ylabel('Mbps')
-        plt.xlabel('''O teste roda a cada 5 Minutos''')
+        plt.xlabel('O teste roda a cada 5 Minutos')
         plt.legend()
-        axes = plt.gca()
         plt.yticks(np.arange(0, 150, step=10))
         plt.grid(True)
         plt.xticks(color='w')
@@ -45,28 +44,27 @@ class Grafico():
         buf.close()
         plt.close('all')
 
-down_lista = []
-up_lista = []
-download_expected = []
-upload_expected = []
-
-null = None
 
 while True:
+    down_lista = []
+    up_lista = []
+    down_expected = []
+    up_expected = []
+
     for _ in range(12):
         j = json.loads(subprocess.check_output(['speedtest-cli', '--json']))
 
         down_lista.append(round(j["download"] * 9.53674E-7, 2))
         up_lista.append(round(j["upload"] * 9.53674E-7, 2))
-        download_expected.append(100)
-        upload_expected.append(50)
+        down_expected.append(100)
+        up_expected.append(50)
 
         if len(down_lista) > 48:
             down_lista.pop(0)
             up_lista.pop(0)
-            download_expected.pop(0)
-            upload_expected.pop(0)
+            down_expected.pop(0)
+            up_expected.pop(0)
 
         sleep(300)
 
-    Grafico(down_lista, up_lista, download_expected, upload_expected).plotar()
+    Grafico(down_lista, up_lista, down_expected, up_expected).plotar()
