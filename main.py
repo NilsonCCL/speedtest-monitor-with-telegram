@@ -1,9 +1,9 @@
 import io
 import json
-import subprocess
-
 import telepot
+import subprocess
 from PIL import Image
+from time import sleep
 import matplotlib.pyplot as plt
 
 with open('secrets.json', 'r') as f:
@@ -11,8 +11,6 @@ with open('secrets.json', 'r') as f:
 
 BOT = telepot.Bot(secrets['BOT'])
 CHAT = secrets['CHAT']
-
-
 
 class Grafico():
     def __init__(self, download, upload):
@@ -45,13 +43,17 @@ down_lista = []
 up_lista = []
 
 null = None
-j = json.loads(subprocess.check_output(['speedtest-cli', '--json']))
 
-down_lista.append(round(j["download"] * 9.53674E-7, 2))
-up_lista.append(round(j["upload"] * 9.53674E-7, 2))
+for _ in range(4):
+    j = json.loads(subprocess.check_output(['speedtest-cli', '--json']))
 
-if (len(down_lista) > 48):
-    down_lista.pop(0)
-    up_lista.pop(0)
+    down_lista.append(round(j["download"] * 9.53674E-7, 2))
+    up_lista.append(round(j["upload"] * 9.53674E-7, 2))
 
-Grafico(down_lista, up_lista).plotar()
+    if len(down_lista) > 48:
+        down_lista.pop(0)
+        up_lista.pop(0)
+
+    Grafico(down_lista, up_lista).plotar()
+
+    sleep(60)
