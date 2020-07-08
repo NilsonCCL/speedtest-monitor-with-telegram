@@ -35,7 +35,7 @@ class Grafico():
         plt.yticks(np.arange(0, 150, step=10))
         plt.grid(True)
         plt.xticks(color='w')
-        plt.show()
+        # plt.show()
         buf = io.BytesIO()
         plt.savefig(buf, format='png')
         buf.seek(0)
@@ -43,7 +43,7 @@ class Grafico():
         im.save('teste.png')
         BOT.sendPhoto(CHAT, open('teste.png', 'rb'))
         buf.close()
-
+        plt.close()
 
 down_lista = []
 up_lista = []
