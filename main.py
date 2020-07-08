@@ -27,10 +27,9 @@ class Grafico():
         plt.plot(self.upload, '-o', color='brown', label='Upload Speed')
         plt.plot(self.download_expected, color='green', label='Download Speed Expected')
         plt.plot(self.upload_expected, color='orange', label='Upload Speed Expected')
-        plt.title('Actual Download Speed VS. Expected Download Speed', )
+        plt.title('Velocidade de Conexão Atual VS. Velocidade de Conexão Esperada', )
         plt.ylabel('Mbps')
-        plt.xlabel('''4 Hours Of Results
-                      Test Runs Every 5 Minutes''')
+        plt.xlabel('''O teste roda a cada 5 Minutos''')
         plt.legend()
         axes = plt.gca()
         plt.yticks(np.arange(0, 150, step=10))
@@ -53,7 +52,7 @@ upload_expected = []
 
 null = None
 
-for _ in range(48):
+for _ in range(12):
     j = json.loads(subprocess.check_output(['speedtest-cli', '--json']))
 
     down_lista.append(round(j["download"] * 9.53674E-7, 2))
@@ -67,6 +66,6 @@ for _ in range(48):
         download_expected.pop(0)
         upload_expected.pop(0)
 
-    Grafico(down_lista, up_lista, download_expected, upload_expected).plotar()
+    sleep(60)
 
-    sleep(300)
+Grafico(down_lista, up_lista, download_expected, upload_expected).plotar()
