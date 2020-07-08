@@ -30,7 +30,7 @@ def graph(download, upload, download_expected, upload_expected, ping):
     buf = io.BytesIO()
     plt.savefig(buf, format='png')
     buf.seek(0)
-    send_image(buf)
+    send_image_to_telegram(buf)
     buf.close()
     plt.close('all')
 
@@ -43,7 +43,7 @@ def make_speedtest():
     return s.results.dict()
 
 
-def send_image(buf):
+def send_image_to_telegram(buf):
     BOT.sendPhoto(CHAT, buf)
 
 
