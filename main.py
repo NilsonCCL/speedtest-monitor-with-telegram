@@ -52,6 +52,7 @@ while True:
 
     for _ in range(48):
         s = speedtest.Speedtest()
+        s.get_best_server()
         s.download()
         s.upload()
         results_dict = s.results.dict()
