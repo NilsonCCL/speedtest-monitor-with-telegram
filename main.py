@@ -3,7 +3,6 @@ import json
 import telepot
 import subprocess
 import numpy as np
-from PIL import Image
 from time import sleep
 import matplotlib.pyplot as plt
 
@@ -34,38 +33,28 @@ class Grafico():
         plt.yticks(np.arange(0, 150, step=10))
         plt.grid(True)
         plt.xticks(color='w')
-        # plt.show()
-        plt.savefig('teste.png', dpi=100)
-
         buf = io.BytesIO()
         plt.savefig(buf, format='png')
         buf.seek(0)
-        # im = Image.open(buf)
-        # im.save('teste.png')
-        print(type(open('teste.png', 'rb')))
-        print(type(buf))
-
         BOT.sendPhoto(CHAT, buf)
         buf.close()
-
         plt.close('all')
-        # BOT.sendPhoto(CHAT, open('teste.png', 'rb'))
 
 
 while True:
-    down_lista = []
-    up_lista = []
-    down_expected = []
-    up_expected = []
+    down_list = []
+    up_list = []
+    down_expected_list = []
+    up_expected_list = []
 
     for _ in range(48):
         j = json.loads(subprocess.check_output(['speedtest-cli', '--json']))
 
-        down_lista.append(round(j["download"] * 9.53674E-7, 2))
-        up_lista.append(round(j["upload"] * 9.53674E-7, 2))
-        down_expected.append(100)
-        up_expected.append(50)
+        down_list.append(round(j["download"] * 9.53674E-7, 2))
+        up_list.append(round(j["upload"] * 9.53674E-7, 2))
+        down_expected_list.append(100)
+        up_expected_list.append(50)
 
         sleep(60)
 
-    Grafico(down_lista, up_lista, down_expected, up_expected).plotar()
+    Grafico(down_list, up_list, down_expected_list, up_expected_list).plotar()
