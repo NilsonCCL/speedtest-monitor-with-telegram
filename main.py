@@ -67,6 +67,6 @@ for _ in range(48):
         download_expected.pop(0)
         upload_expected.pop(0)
 
-    Grafico(downlista, uplista, download_expected, upload_expected).plotar()
+    Grafico(down_lista, up_lista, download_expected, upload_expected).plotar()
 
     sleep(300)
