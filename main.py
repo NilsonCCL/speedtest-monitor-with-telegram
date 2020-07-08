@@ -35,14 +35,15 @@ class Grafico():
         plt.grid(True)
         plt.xticks(color='w')
         # plt.show()
-        buf = io.BytesIO()
-        plt.savefig(buf, format='png')
-        buf.seek(0)
-        im = Image.open(buf)
-        im.save('teste.png')
-        BOT.sendPhoto(CHAT, open('teste.png', 'rb'))
-        buf.close()
+        plt.savefig('teste.png', dpi=100)
+        # buf = io.BytesIO()
+        # plt.savefig(buf, format='png')
+        # buf.seek(0)
+        # im = Image.open(buf)
+        # im.save('teste.png')
+        # buf.close()
         plt.close('all')
+        BOT.sendPhoto(CHAT, open('teste.png', 'rb'))
 
 
 while True:
@@ -51,7 +52,7 @@ while True:
     down_expected = []
     up_expected = []
 
-    for _ in range(12):
+    for _ in range(48):
         j = json.loads(subprocess.check_output(['speedtest-cli', '--json']))
 
         down_lista.append(round(j["download"] * 9.53674E-7, 2))
@@ -59,12 +60,6 @@ while True:
         down_expected.append(100)
         up_expected.append(50)
 
-        if len(down_lista) > 48:
-            down_lista.pop(0)
-            up_lista.pop(0)
-            down_expected.pop(0)
-            up_expected.pop(0)
-
-        sleep(300)
+        sleep(60)
 
     Grafico(down_lista, up_lista, down_expected, up_expected).plotar()
