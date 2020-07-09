@@ -61,7 +61,7 @@ The <b>Speedtest Graph</b> project is developed in Python3 and aims to serve int
 ```
 ---
 <p align="center">
-desenvolvido por Evanilson Andrade dos Santos - Nilson Santos
+developed by Evanilson Andrade dos Santos - Nilson Santos
 </p>
 <p align="center">
 www.nilson.com.br
