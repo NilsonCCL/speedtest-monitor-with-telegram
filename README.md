@@ -10,9 +10,9 @@
 - [How to use](-How-to-use)
 ---
 ## 📄About
-<h4>
-The <b>Speedtest Graph</b> project is developed in Python3 and aims to serve internet speed measurement charts and send to Twitter.
-</h4>
+<p>
+The <b>Speedtest Graph</b> project is a bot developed in Python3 and aims to serve speed measurement graphs from the Internet and send to Twitter.
+</p>
 
 ---
 ## 🛠Technologies used
