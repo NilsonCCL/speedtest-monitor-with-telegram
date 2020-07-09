@@ -11,7 +11,7 @@
 ---
 ## 📄About
 <h4>
-The **Speedtest Graph** project is developed in Python3 and aims to serve internet speed measurement charts and send to Twitter.
+The <b>Speedtest Graph</b> project is developed in Python3 and aims to serve internet speed measurement charts and send to Twitter.
 </h4>
 
 ---
@@ -19,6 +19,7 @@ The **Speedtest Graph** project is developed in Python3 and aims to serve intern
 - [Python](https://www.python.org/)
 - [Speedtest](https://www.speedtest.net/)
 - [Twitter](https://twitter.com/)
+- [here](https://developer.twitter.com/en/docs/basics/authentication/oauth-1-0a/obtaining-user-access-tokens)
 ---
 ## 📦Installing dependencies
 ```bash
@@ -29,7 +30,6 @@ The **Speedtest Graph** project is developed in Python3 and aims to serve intern
     pip install matplotlib
     
     pip install tweetpy
-    
 ```
 ---
 ## 📦How to use
@@ -37,12 +37,25 @@ The **Speedtest Graph** project is developed in Python3 and aims to serve intern
 ```bash
     # clona diretório
     git clone https://github.com/nilson-santos/speedtest-graph
-    
+```
+```bash
     # enter into directory
     cd speedtest-graph
+```
 
-    
+   You need to create a json file with Twitter keys
+   "secrets.json" must contain. get your keys [here](https://developer.twitter.com/en/docs/basics/authentication/oauth-1-0a/obtaining-user-access-tokens)
 
+
+```json
+    {
+        "consumer_key": "**************************",
+        "consumer_secret": "**************************************************",
+        "access_token": "**********-****************************************",
+        "access_token_secret": "**************************************************"
+    }
+```
+```bash
     # run the project
     python main.py
 ```
