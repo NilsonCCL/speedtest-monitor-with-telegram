@@ -19,7 +19,6 @@ The <b>Speedtest Graph</b> project is a bot developed in Python3 and aims to ser
 - [Python](https://www.python.org/)
 - [Speedtest](https://www.speedtest.net/)
 - [Twitter](https://twitter.com/)
-- [here](https://developer.twitter.com/en/docs/basics/authentication/oauth-1-0a/obtaining-user-access-tokens)
 ---
 ## 📦Installing dependencies
 ```bash
