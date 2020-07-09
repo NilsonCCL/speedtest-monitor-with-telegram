@@ -52,7 +52,7 @@ while True:
     up_list = []
     ping_list = []
 
-    for _ in range(45):
+    for _ in range(48):
         results_dict = make_speedtest()
         down_expected_list.append(100)
         up_expected_list.append(50)
@@ -62,4 +62,4 @@ while True:
 
         sleep(300)
 
-    graph(down_list, up_list, down_expected_list, up_expected_list, ping_list)
+    graph(down_expected_list, up_expected_list, down_list, up_list, ping_list)
