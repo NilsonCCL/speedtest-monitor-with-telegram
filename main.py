@@ -52,7 +52,7 @@ while True:
     up_list = []
     ping_list = []
 
-    for _ in range(1):
+    for _ in range(45):
         results_dict = make_speedtest()
         down_expected_list.append(100)
         up_expected_list.append(50)
@@ -60,6 +60,6 @@ while True:
         up_list.append(round(results_dict["upload"] * 9.53674E-7, 2))
         ping_list.append(int(results_dict["ping"]))
 
-        sleep(1)
+        sleep(300)
 
     graph(down_list, up_list, down_expected_list, up_expected_list, ping_list)
