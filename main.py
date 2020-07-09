@@ -22,7 +22,7 @@ def graph(download_expected, upload_expected, download, upload, ping):
     plt.plot(ping, color='purple', label='Ping')
     plt.title('Current Connection Speed VS. Connection Speed Expected \nthe tests runs every 5 minutes')
     plt.ylabel('Mbps')
-    plt.xlabel('github.com/NilsonCCL/speedtest-graph')
+    plt.xlabel('github.com/nilson-santos/speedtest-graph')
     plt.legend()
     plt.yticks(np.arange(0, 160, step=10))
     plt.grid(True)
