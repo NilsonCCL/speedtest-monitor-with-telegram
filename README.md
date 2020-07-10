@@ -34,7 +34,7 @@ The <b>Speedtest Graph</b> project is a bot developed in Python3 and aims to ser
 ## 📦How to use
 
 ```bash
-    # clona diretório
+    # clone directory
     git clone https://github.com/nilson-santos/speedtest-graph
 ```
 ```bash
