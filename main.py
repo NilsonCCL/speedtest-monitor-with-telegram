@@ -41,7 +41,8 @@ def make_speedtest():
 
 
 def send_imagem_to_twitter():
-    caption = 'github.com/nilson-santos/speedtest-graph \n#Python #RaspberryPi #SpeedTest #Matplotlib'
+    caption = 'github.com/nilson-santos/speedtest-graph \n#Python #RaspberryPi #SpeedTest #Matplotlib ' \
+              '#opticalfiber #telecom'
     twitter.update_with_media('graph.png', caption)
 
 
