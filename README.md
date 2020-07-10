@@ -1,9 +1,10 @@
 <p align="center">
-    <img align="center" src="https://ik.imagekit.io/nilson/Webp.net-resizeimage_1KQzqtm8ZJ.png" alt="speedtest-graph">
+    <img align="center" src="https://ik.imagekit.io/nilson/graph_C6DJab2qX.png" alt="speedtest-graph">
 </p>
 <p align="center">
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
+<a href="https://github.com/nilson-santos/speedtest-graph/blob/master/LICENSE"><img src="https://ik.imagekit.io/nilson/license_npETnzBm2.svg" alt="License"></a>
 </p>
+
 ---
 ## 📑Index
 - [About](-About)
