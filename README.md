@@ -28,7 +28,7 @@ The <b>Speedtest Graph</b> project is a bot developed in Python3 and aims to ser
     
     pip install matplotlib
     
-    pip install tweetpy
+    pip install tweepy
 ```
 ---
 ## 📦How to use
