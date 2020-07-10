@@ -15,9 +15,9 @@ twitter = tweepy.API(auth)
 
 def graph(download_expected, upload_expected, download, upload, ping):
     plt.figure()
-    plt.plot(download_expected, color='green', label='Download Speed Esperado')
-    plt.plot(upload_expected, color='orange', label='Upload Speed Esperado')
-    plt.plot(download, '-o', color='blue', label='Current Download')
+    plt.plot(download_expected, color='green', label='Expected Download Speed')
+    plt.plot(upload_expected, color='orange', label='Expected Upload Speed')
+    plt.plot(download, '-o', color='blue', label='Current Download Speed')
     plt.plot(upload, '-o', color='brown', label='Current Upload Speed')
     plt.plot(ping, color='purple', label='Ping')
     plt.title('Current Connection Speed VS. Expected Connection Speed \nthe tests runs every 5 minutes')
@@ -41,7 +41,7 @@ def make_speedtest():
 
 
 def send_imagem_to_twitter():
-    caption = 'github.com/NilsonCCL/speedtest-graph \n#Python #RaspberryPi #SpeedTest #Matplotlib'
+    caption = 'github.com/nilson-santos/speedtest-graph \n#Python #RaspberryPi #SpeedTest #Matplotlib'
     twitter.update_with_media('graph.png', caption)
 
 
