@@ -1,5 +1,5 @@
 <p align="center">
-    <img align="center" src="https://ik.imagekit.io/nilson/graph_C6DJab2qX.png" alt="speedtest-graph">
+    <img align="center" src="https://ik.imagekit.io/nilson/graph_KouyS2Ibk.png" alt="speedtest-graph">
 </p>
 <p align="center">
 <a href="https://github.com/nilson-santos/speedtest-graph/blob/master/LICENSE"><img src="https://ik.imagekit.io/nilson/license_npETnzBm2.svg" alt="License"></a>
