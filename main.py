@@ -33,10 +33,19 @@ def graph(download_expected, upload_expected, download, upload, ping):
 
 
 def make_speedtest():
-    s = speedtest.Speedtest()
-    s.get_best_server()
-    s.download()
-    s.upload()
+    while True:
+        try:
+            s = speedtest.Speedtest()
+            s.get_best_server()
+            s.download()
+            s.upload()
+        except Exception as exception:
+            print(f'Exception: {type(exception).__name__}')
+            print(f'Exception message: {exception}')
+            print('Speedtest error, retrying')
+        else:
+            break
+
     return s.results.dict()
 
 
